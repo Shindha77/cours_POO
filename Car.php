@@ -1,94 +1,35 @@
 <?php
 
-class Car
+require_once 'Vehicle.php';
+
+class Car extends Vehicle
 {
-  private int $nbWheels = 4;
+  public const ALLOWED_ENERGIES = [
+    'essence',
+    'électrique',
+  ];
 
-  private int $currentSpeed = 0;
+  protected string $energy;
 
-  private string $color;
-
-  private int $nbSeats;
-
-  private string $energy;
-
-  private int $energyLevel = 100;
+  protected int $energyLevel;
 
   public function __construct(string $color, int $nbSeats, string $energy)
   {
-    $this->color = $color;
-    $this->nbSeats = $nbSeats;
-    $this->energy = $energy;
+    parent::__construct($color, $nbSeats);
+    $this->setEnergy($energy);
   }
 
-  public function forward(): string
-  {
-    $this->setCurrentSpeed = 90;
-
-    return "Go !";
-  }
-
-  public function brake(): string
-  {
-    $sentence = "";
-    while ($this->setCurrentSpeed > 0) {
-      $this->setCurrentSpeed-=10;
-      $sentence .= "Brake !!!";
-    }
-    $sentence .= "I'm stopped !";
-    return $sentence;
-  }
-
-  public function start(): string
+  public function start()
   {
     return "Ignition !";
   }
 
-  public function setNbWheels(int $nbWheels): void
+  public function setEnergy(string $energy): Car
   {
-    $this->nbWheels = $nbWheels;
-  }
-  
-  public function getNbWheels(): int
-  {
-    return $this->nbWheels;
-  }
-
-  public function setCurrentSpeed(int $currentSpeed): void
-  {
-    if ($currentSpeed >= 0) {
-      $this->currentSpeed = $currentSpeed;
+    if (in_array($energy, self::ALLOWED_ENERGIES)) {
+      $this->energy = $energy;
     }
-  }
-
-  public function getCurrentSpeed(): int
-  {
-    return $this->currentSpeed;
-  }
-
-  public function setColor(string $color): void
-  {
-    $this->color = $color;
-  }
-
-  public function getColor(): string
-  {
-    return $this->color;
-  }
-
-  public function setNbSeats(int $nbSeats): void
-  {
-    $this->nbSeat = $nbSeats;
-  }
-
-  public function getNbSeats(): int
-  {
-    return $this->nbSeats;
-  }
-
-  public function setEnergy(string $energy): void
-  {
-    $this->energy = $energy;
+    return $this;
   }
 
   public function getEnergy(): string
@@ -105,5 +46,4 @@ class Car
   {
     return $this->energyLevel;
   }
-
 }
