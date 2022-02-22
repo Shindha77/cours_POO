@@ -4,6 +4,10 @@ require_once 'Vehicle.php';
 require_once 'Bicycle.php';
 require_once 'Car.php';
 require_once 'Truck.php';
+require_once 'HighWay.php';
+require_once 'MotorWay.php';
+require_once 'ResidentialWay.php';
+require_once 'PedestrianWay.php';
 
 // Instanciation d'un vélo $rockrider
 $rockrider = new Bicycle('yellow', 1);
@@ -42,4 +46,28 @@ echo '<br> Vitesse du camion : ' . $volvo->setCurrentSpeed . 'km/h' . '<br>';
 
 // test de remplissage
 $volvo->setFilling(150);
-echo '<br>' . $volvo->currentFilling();
+echo '<br>' . $volvo->currentFilling() . '<br>';
+
+// test fonction addVehicle MotorWay
+$motorWay = new MotorWay();
+
+echo '<br>' . $motorWay->addVehicle($tornado) . '<br>';
+echo '<br>' . $motorWay->addVehicle($homerCar) . '<br>';
+echo '<br>' . $motorWay->addVehicle($volvo) . '<br>';
+var_dump($motorWay->getcurrentVehicles());
+
+// test fonction addVehicle ResidentialWay
+$residentialWay = new ResidentialWay();
+
+echo '<br>' . $residentialWay->addVehicle($tornado) . '<br>';
+echo '<br>' . $residentialWay->addVehicle($homerCar) . '<br>';
+echo '<br>' . $residentialWay->addVehicle($volvo) . '<br>';
+var_dump($residentialWay->getcurrentVehicles());
+
+// test fonction addVehicle PedestrianWay
+$pedestrianWay = new PedestrianWay();
+
+echo '<br>' . $pedestrianWay->addVehicle($tornado) . '<br>';
+echo '<br>' . $pedestrianWay->addVehicle($homerCar) . '<br>';
+echo '<br>' . $pedestrianWay->addVehicle($volvo) . '<br>';
+var_dump($pedestrianWay->getcurrentVehicles());
