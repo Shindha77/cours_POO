@@ -9,6 +9,8 @@ class Car extends Vehicle
         'électrique',
     ];
 
+    private bool $hasParkBrake = true;
+
     protected int $energyLevel;
 
     public function __construct(protected string $color, int $nbSeats, protected string $energy)
@@ -18,7 +20,9 @@ class Car extends Vehicle
 
     public function start()
     {
-        return "Ignition !";
+        if ($hasParkBrake = true) {
+            throw new Exception('Il y a le frein à main');
+        }
     }
 
     public function setEnergy(string $energy): Car
@@ -42,5 +46,15 @@ class Car extends Vehicle
     public function getEnergyLevel(): int
     {
         return $this->energyLevel;
+    }
+
+    public function setParkBrake(bool $hasParkBrake): void
+    {
+        $this->hasParkBrake = $hasParkBrake;
+    }
+
+    public function getParkBrake(): bool
+    {
+        return $this->hasParkBrake;
     }
 }
