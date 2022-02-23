@@ -5,14 +5,14 @@ require_once 'LightableInterface.php';
 
 class Bicycle extends Vehicle implements LightableInterface
 {
-    public bool $headlight = false;
+    protected bool $headlight = false;
 
     public function switchOn()
     {
-       if ($this->setCurrentSpeed > 10) {
-           $this->headlight = true;
-       } else {
+       if ($this->currentSpeed < 10) {
            $this->headlight = false;
+       } else {
+           $this->headlight = true;
        }
     }
 

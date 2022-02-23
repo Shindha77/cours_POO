@@ -12,11 +12,11 @@ class Car extends Vehicle implements LightableInterface
 
     private bool $hasParkBrake = true;
 
-    public bool $headlight = false;
+    protected bool $headlight = false;
 
     protected int $energyLevel;
 
-    public function __construct(protected string $color, int $nbSeats, protected string $energy)
+    public function __construct(string $color, int $nbSeats, string $energy)
     {
         parent::__construct($color, $nbSeats);
     }

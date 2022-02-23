@@ -7,13 +7,13 @@ abstract class Vehicle
 
     protected int $nbWheels;
 
-    public function __construct(protected string $color, protected int $nbSeats)
+    public function __construct( string $color,  int $nbSeats)
     {
     }
 
     public function forward(): string
     {
-        $this->setCurrentSpeed = 15;
+        $this->currentSpeed = 15;
 
         return "Go !";
     }
@@ -21,8 +21,8 @@ abstract class Vehicle
     public function brake(): string
     {
         $sentence = "";
-        while ($this->setCurrentSpeed > 0) {
-            $this->setCurrentSpeed--;
+        while ($this->currentSpeed > 0) {
+            $this->currentSpeed--;
             $sentence .= "Brake !!!";
         }
         $sentence .= "I'm stopped !";
