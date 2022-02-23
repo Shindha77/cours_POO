@@ -9,9 +9,9 @@ class Truck extends Vehicle implements LightableInterface
 
     protected int $filling = 0;
 
-    private bool $headlight = false;
+    protected bool $headlight = false;
 
-    public function __construct(string $color, int $nbSeats, protected string $energy, protected int $capacity)
+    public function __construct(string $color, int $nbSeats,  string $energy,  int $capacity)
     {
        parent::__construct($color, $nbSeats);
     }
