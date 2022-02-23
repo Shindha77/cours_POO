@@ -14,3 +14,17 @@ try {
     echo 'Ma voiture roule comme un donut';
 }
 
+$tornado = new Bicycle('black', 1);
+
+$homerCar->switchOn();
+var_dump($homerCar->headlight);
+$homerCar->switchOff();
+var_dump($homerCar->headlight);
+echo $tornado->forward();
+echo $tornado->switchOn();
+var_dump($tornado);
+echo $tornado->brake();
+var_dump($tornado);
+echo $tornado->switchOff();
+var_dump($tornado);
+
